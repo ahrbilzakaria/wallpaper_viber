@@ -8,13 +8,13 @@ import { contextBridge, ipcRenderer } from 'electron';
 // the APIs exposed by the preload script in the main process.
 contextBridge.exposeInMainWorld("electron", {
     ipcRenderer: {
-        title:'title',
+        title:'Wallpaper Viber',
       version: 'version',
   },
-getVersion: () => ipcRenderer.sendSync("app/version"),
-maximize: () => ipcRenderer.send("app/maximize"),
-  minimize: () => ipcRenderer.send("app/minimize"),
-  onToggleTitlebar: (callback: (show: boolean) => void) =>
+    getVersion: () => ipcRenderer.sendSync("app/version"),
+    maximize: () => ipcRenderer.send("app/maximize"),
+    minimize: () => ipcRenderer.send("app/minimize"),
+    onToggleTitlebar: (callback: (show: boolean) => void) =>
     ipcRenderer.on("toggle-titlebar", (_event, show) => callback(show)),
-  close: () => ipcRenderer.send("app/close"),
+    close: () => ipcRenderer.send("app/close"),
 });

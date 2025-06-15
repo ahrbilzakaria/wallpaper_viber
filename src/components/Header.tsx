@@ -17,8 +17,11 @@ const Header = () => {
   }, []);
 
   return (
-    <nav ref={header} className="h-11 dark:bg-main-dark bg-black z-10 drag p-1">
-      {window.electron && <CloseButtons />}
+    <nav
+      ref={header}
+      className=" dark:bg-main-dark bg-zinc-900 z-10 drag "
+    >
+      <div className="h-full w-lg ">{window.electron && <CloseButtons />}</div>
     </nav>
   );
 };

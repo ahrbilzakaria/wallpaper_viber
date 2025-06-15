@@ -1,6 +1,8 @@
 import React from "react";
 import * as ReactDOM from "react-dom/client";
 import Header from "./components/Header";
+import { Upload } from "lucide-react/dist/lucide-react";
+import UploadField from "./components/upload";
 
 declare global {
   interface Window {
@@ -9,11 +11,12 @@ declare global {
 }
 
 const App = () => (
-  <div className="h-screen flex flex-col font-[roboto] font-bold bg-black dark:bg-main-light text-white">
+  <div className="w-screen h-screen overflow-hidden flex flex-col font-[roboto] font-bold bg-zinc-800 dark:bg-main-light text-white">
     <Header />
-    <h1 className="flex flex-row flex-1 w-full overflow-hidden justify-center items-center">
-      {window.electron.ipcRenderer.title}
-    </h1>
+    <div className="flex flex-col h-ful w-full   justify-center items-center  p-4">
+      <h1 className="text-3xl mt-4 font-bold">Welcome to {window.electron.ipcRenderer.title}</h1>
+      <UploadField />
+    </div>
   </div>
 );
 
